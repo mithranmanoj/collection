@@ -1,17 +1,15 @@
 version: 0.2
 phases:
-  install:
-    commands:
-      - '[Net.ServicePointManager]::SecurityProtocol = "Tls12"; Invoke-WebRequest https://awscli.amazonaws.com/AWSCLIV2.msi -OutFile $env:TEMP/AWSCLIV2.msi'
-      - Start-Process -Wait msiexec "/i $env:TEMP\AWSCLIV2.msi /quiet /norestart"
-  pre_build:
-    commands:
-      - '&"C:\Program Files\Amazon\AWSCLIV2\aws" codeartifact login --tool npm --repository connect-rest-api-collection --domain connect-rest-api-collection --domain-owner 069253741141'
-  build:
-    commands:
-      - npm install newman --global && newman run -r html,cli Connect-Rest-API.postman_collection.json --reporter-html-export report.html
+  install:
+    commands:
+      - '[Net.ServicePointManager]::SecurityProtocol = "Tls12"; Invoke-WebRequest https://awscli.amazonaws.com/AWSCLIV2.msi -OutFile $env:TEMP/AWSCLIV2.msi'
+      - Start-Process -Wait msiexec "/i $env:TEMP\AWSCLIV2.msi /quiet /norestart"
+  pre_build:
+    commands:
+      - '&"C:\Program Files\Amazon\AWSCLIV2\aws" codeartifact login --tool npm --repository connect-rest-api-collection --domain connect-rest-api-collection --domain-owner 069253741141'
+  build:
+    commands:
+      - npm install newman --global && newman run -r html,cli Connect-Rest-API.postman_collection.json --reporter-html-export report.html`
 artifacts:
   files:
     - report.html
-
-
