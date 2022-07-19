@@ -71,18 +71,39 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"key": "notificationID",
-			"value": "74362469"
+			"key": "baseURL",
+			"value": "restapiqa.blackboardconnect.com"
 		},
 		{
 			"key": "rest-api-baseURL",
-			"value": "https://localhost:44354/"
+			"value": "https://localhost:44354/",
+			"disabled": true
 		},
 		{
-			"key": "baseURL-rest-api",
-			"value": "localhost:44354"
+			"value": "localhost:44354",
+			"disabled": true
 		}
 	]
 }
